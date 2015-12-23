@@ -10,7 +10,7 @@
 | 1. Start MongoDB                      |
 | 2. Start main.py                      |
 
-| Gebruiken                             |
+| Gebruiken                             ||
 | ------------------- 					| -------------------										|
 | De collectie in MongoDB veranderen 	| 1. Klik op Settings <br /> 2. Klik op Change collection	|
 | Het zoekwoord veranderen    			| 1. Klik op Settings <br /> 2. Klik op Change keyword		|
