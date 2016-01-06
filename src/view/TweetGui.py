@@ -1,4 +1,4 @@
-import urllib
+import socket
 from tkinter import *
 from tkinter import messagebox
 from tkinter import simpledialog
@@ -173,7 +173,7 @@ class TweetMenu:
         for col_val in self.mongo_adapter.get_collections():
             if col_val != 'system.indexes':
                 collection_string += col_val + ' => '
-                collection_string += str(self.stream.processor.get_database.get_collection_count(col_val))
+                collection_string += str(self.stream.processor.mongo_adapter.get_collection_count(col_val))
                 collection_string += '\n'
         messagebox.showinfo('collections', collection_string)
 
@@ -249,8 +249,16 @@ class TweetMenu:
         self.graph.auto_update()
 
     def test_connection(self):
+        remote_server = "www.google.com"
+
         try:
-            urllib.request.urlopen('http://74.125.228.100', timeout=1)
+            # see if we can resolve the host name -- tells us if there is
+            # a DNS listening
+            host = socket.gethostbyname(remote_server)
+            # connect to the host -- tells us if the host is actually
+            # reachable
+            s = socket.create_connection((host, 80), 2)
             return True
-        except urllib.request.URLError:
-            return False
+        except:
+            pass
+        return False

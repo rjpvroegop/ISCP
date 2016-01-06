@@ -7,7 +7,7 @@ class Tweet:
             self.username = tweet['user']['name']
         except KeyError:
             self.username = "anonymous"
-            print("This tweet has no user, setting anonymous")
+            # print("This tweet has no user, setting anonymous")
         except:
             print(sys.exc_info()[0])
 
@@ -15,7 +15,7 @@ class Tweet:
             self.text = tweet['text']
         except KeyError:
             self.text = ""
-            print("This tweet has no text. Left empty.")
+            # print("This tweet has no text. Left empty.")
         except:
             print(sys.exc_info()[0])
 

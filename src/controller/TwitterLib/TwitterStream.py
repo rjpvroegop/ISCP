@@ -14,7 +14,7 @@ class TweetStream:
     processor = TweetProcessor()
 
     # get a dictionary with keys for the twitter api
-    fr = open('controller/TwitterLib/twitter_api_keys.json')
+    fr = open('src/controller/TwitterLib/twitter_api_keys.json')
     api_data = json.loads(fr.read())
     fr.close()
 

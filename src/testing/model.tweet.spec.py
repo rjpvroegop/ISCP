@@ -1,6 +1,7 @@
+import json
 import unittest
 
-from model.tweet import Tweet
+from src.model.tweet import Tweet
 
 
 class TestStringMethods(unittest.TestCase):
@@ -11,34 +12,42 @@ class TestStringMethods(unittest.TestCase):
 
     def test_same(self):
         self.assertEqual(self.create_tweet, self.create_tweet)
+        print("Testing equals")
 
     def test_different(self):
-        self.assertNotEqual(self.create_tweet, self.create_tweet_different)
+        self.assertNotEqual(self.create_tweet(), self.create_tweet_different())
+        print("Testing different")
 
     def test_empty_text_tweet(self):
         empty_text = ""
         self.assertEqual(self.create_tweet_without_text().text, empty_text)
+        print("Testing empty text")
 
     def test_empty_user_tweet(self):
         anonymous = "anonymous"
         self.assertEqual(self.create_tweet_without_user().username, anonymous)
+        print("Testing empty user")
 
     def test_create_user_with_mood(self):
         self.assertEqual(self.create_tweet_without_mood().mood, self.create_tweet().mood)
+        print("Testing create user with mood")
 
     def test_tweet_no_argument(self):
         with self.assertRaises(TypeError):
             self.create_empty_tweet()
+        print("Testing tweet no arguments")
 
     def test_tweet_empty_data(self):
         self.assertEqual(
             self.create_tweet_without_text().text,
             self.create_tweet_without_data().text
         )
+        print("Testing empty data")
         self.assertEqual(
             self.create_tweet_without_user().username,
             self.create_tweet_without_data().username
         )
+        print("Testing empty username")
 
     # ---
     # - methods that we can test stuff from

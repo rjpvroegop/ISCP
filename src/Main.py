@@ -1,4 +1,5 @@
-from src.view import TweetGui
+import os; print(os.getcwd())
+from view import TweetGui
 
 class Main:
     def __init__(self):
